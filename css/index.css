@@ -448,13 +448,3 @@ hr {
     margin: 20px 0; 
 }
 
-@media (max-width: 768px) {
-    .main-content {
-        flex-direction: column;
-    }
-
-    .left-column, .right-column {
-        flex: 100%;
-        padding: 0;
-    }
-}

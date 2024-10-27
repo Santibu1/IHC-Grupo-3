@@ -1,6 +1,6 @@
 # IHC-Grupo-3
 
-Integrantes del Equipo:
+Integrantes del Equipo;
 1-Fernando Sanchez Guevara   u202218181
 2-Luis Angel Pillaca Vidal   u202315654 
 3-Renzo Santos Minaya        u202114790

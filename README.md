@@ -10,16 +10,16 @@
  * 7-Andy Arturo nuñez soto     u20231e795
  * 8-Santiago Barnett Urtecho   u202319967
 
-*Segmento Objetivo 1: "Jóvenes Profesionales Urbanos"
-*Sexo: Masculino y Femenino
-*Edades: 25-35 años
-*Nivel socioeconómico: B/C (media-alta y media)
-*Nacionalidad: Peruana
-*Zona geográfica: Urbana
-*Psicográficos: Interesados en simplificar su transición hacia un estilo de vida ecológico, buscando comodidad y efectividad sin sacrificar su estilo de vida.
+Segmento Objetivo 1: "Jóvenes Profesionales Urbanos"
+* Sexo: Masculino y Femenino
+* Edades: 25-35 años
+* Nivel socioeconómico: B/C (media-alta y media)
+* Nacionalidad: Peruana
+* Zona geográfica: Urbana
+* Psicográficos: Interesados en simplificar su transición hacia un estilo de vida ecológico, buscando comodidad y efectividad sin sacrificar su estilo de vida.
 
-*Segmento Objetivo 2: "Eco-Exploradores Juveniles"
-*Sexo: Masculino y Femenino
+Segmento Objetivo 2: "Eco-Exploradores Juveniles"
+- Sexo: Masculino y Femenino
 *Edades: 18-24 años
 *Nivel socioeconómico: C/D (media y media-baja)
 *Nacionalidad: Peruana

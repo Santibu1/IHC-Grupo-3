@@ -20,17 +20,17 @@ Segmento Objetivo 1: "Jóvenes Profesionales Urbanos"
 
 Segmento Objetivo 2: "Eco-Exploradores Juveniles"
 - Sexo: Masculino y Femenino
-*Edades: 18-24 años
-*Nivel socioeconómico: C/D (media y media-baja)
-*Nacionalidad: Peruana
-*Zona geográfica: Urbana y semiurbana
-*Psicográficos: Abiertos a explorar la sostenibilidad de manera accesible y divertida, con interés en conectarse socialmente mientras impactan positivamente el medio ambiente.
+- Edades: 18-24 años
+- Nivel socioeconómico: C/D (media y media-baja)
+- Nacionalidad: Peruana
+- Zona geográfica: Urbana y semiurbana
+- Psicográficos: Abiertos a explorar la sostenibilidad de manera accesible y divertida, con interés en conectarse socialmente mientras impactan positivamente el medio ambiente.
 
-*Segmento Objetivo 3: "Familias Sostenibles"
-*Sexo: Masculino y Femenino
-*Edades: 36-60 años
-*Nivel socioeconómico: A/B/C (alta, media-alta y media)
-*Nacionalidad: Peruana
-*Zona geográfica: Urbana
-*Psicográficos: Buscan herramientas prácticas para adoptar hábitos sostenibles sin complicaciones, valorando la conveniencia en su vida diaria.
+Segmento Objetivo 3: "Familias Sostenibles"
+- Sexo: Masculino y Femenino
+- Edades: 36-60 años
+- Nivel socioeconómico: A/B/C (alta, media-alta y media)
+- Nacionalidad: Peruana
+- Zona geográfica: Urbana
+- Psicográficos: Buscan herramientas prácticas para adoptar hábitos sostenibles sin complicaciones, valorando la conveniencia en su vida diaria.
 

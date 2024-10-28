@@ -35,3 +35,12 @@ Segmento Objetivo 3: "Familias Sostenibles"
 - Zona geográfica: Urbana
 - Psicográficos: Buscan herramientas prácticas para adoptar hábitos sostenibles sin complicaciones, valorando la conveniencia en su vida diaria.
 
+Características Claves
+* Sugerencias personalizadas
+  Eco-Chips ofrece recomendaciones de hábitos sostenibles adaptadas a las necesidades y preferencias de cada usuario, facilitando la adopción de prácticas ecológicas relevantes y prácticas.
+  
+* Seguimiento de progreso
+  La aplicación permite a los usuarios monitorear su impacto ambiental y ver el avance de sus objetivos de sostenibilidad, brindando métricas visuales y motivadoras.
+  
+* Comunidad activa
+  Eco-Chips incluye una comunidad integrada donde los usuarios pueden compartir experiencias, recibir apoyo y encontrar inspiración para continuar su viaje hacia un estilo de vida más sostenible.

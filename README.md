@@ -1,5 +1,6 @@
 # IHC-Grupo-3
-
+*INFORMACIÓN DEL PROYECTO:
+*Este proyecto consiste en el desarrollo de una landing page para Prototec con el objetivo de presentar una aplicación que ayuda a los usuarios a adoptar hábitos más ecológicos. 
  Integrantes del Equipo:
  * 1-Fernando Sanchez Guevara   u202218181
  * 2-Luis Angel Pillaca Vidal   u202315654 

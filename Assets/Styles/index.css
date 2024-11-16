@@ -187,6 +187,12 @@ p a {
 p a:hover {
     text-decoration: underline;
 }
+.mensaje-error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: none;
+}
 .Parte-2 img {
     max-width: 100%;
     height: auto;

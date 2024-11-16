@@ -22,6 +22,10 @@ const formularioLogin = document.getElementById("formularioLogin");
 const formularioRegistro = document.getElementById("formularioRegistro");
 const cambiarARegistro = document.getElementById("cambiarARegistro");
 const cambiarALogin = document.getElementById("cambiarALogin");
+const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
+const errorLogin = document.getElementById("errorLogin");
+const errorRegistro = document.getElementById("errorRegistro");
 
 // Abrir el modal
 abrirModal.addEventListener("click", () => {
@@ -51,5 +55,34 @@ cambiarALogin.addEventListener("click", (e) => {
 window.addEventListener("click", (event) => {
     if (event.target == modal) {
         modal.style.display = "none";
+    }
+});
+
+// Validar Login
+loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const correo = document.getElementById("correo").value;
+    const contraseña = document.getElementById("contraseña").value;
+
+    if (correo === "usuario@ejemplo.com" && contraseña === "Contraseña123") {
+        alert("Inicio de sesión exitoso.");
+        modal.style.display = "none";
+    } else {
+        errorLogin.style.display = "block";
+    }
+});
+
+// Validar Registro
+registerForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const contraseña = document.getElementById("contraseñaRegistro").value;
+    const confirmarContraseña = document.getElementById("confirmarContraseña").value;
+
+    if (contraseña === confirmarContraseña) {
+        alert("Registro exitoso. Ahora puedes iniciar sesión.");
+        formularioRegistro.style.display = "none";
+        formularioLogin.style.display = "block";
+    } else {
+        errorRegistro.style.display = "block";
     }
 });

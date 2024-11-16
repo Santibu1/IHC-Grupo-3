@@ -50,25 +50,51 @@
                         <!-- Formulario de Login -->
                         <div id="formularioLogin">
                             <h2>Iniciar Sesión</h2>
-                            <form>
+                            <form id="loginForm">
                                 <label for="correo">Correo Electrónico:</label>
-                                <input type="email" id="correo" required>
+                                <input type="email" id="correo" placeholder="ejemplo@gmail.com" required>
                                 <label for="contraseña">Contraseña:</label>
-                                <input type="password" id="contraseña" required>
+                                <input 
+                                    type="password" 
+                                    id="contraseña" 
+                                    placeholder="Mínimo 8 caracteres" 
+                                    pattern=".{8,}" 
+                                    title="La contraseña debe tener al menos 8 caracteres." 
+                                    required>
                                 <button type="submit">Iniciar Sesión</button>
+                                <p id="errorLogin" class="mensaje-error" style="display:none;">Por favor, revisa tus credenciales.</p>
                             </form>
                             <p>¿No tienes cuenta? <a href="#" id="cambiarARegistro">Regístrate acá</a></p>
                         </div>
                         <!-- Formulario de Registro -->
                         <div id="formularioRegistro" style="display: none;">
                             <h2>Registrarse</h2>
-                            <form>
+                            <form id="registerForm">
                                 <label for="nombre">Nombre Completo:</label>
-                                <input type="text" id="nombre" required>
+                                <input type="text" id="nombre" placeholder="Nombre y Apellido" required>
                                 <label for="correoRegistro">Correo Electrónico:</label>
-                                <input type="email" id="correoRegistro" required>
+                                <input 
+                                    type="email" 
+                                    id="correoRegistro" 
+                                    placeholder="ejemplo@gmail.com" 
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                                    title="Introduce un correo válido (ejemplo@gmail.com)." 
+                                    required>
                                 <label for="contraseñaRegistro">Contraseña:</label>
-                                <input type="password" id="contraseñaRegistro" required>
+                                <input 
+                                    type="password" 
+                                    id="contraseñaRegistro" 
+                                    placeholder="Mínimo 8 caracteres, 1 mayúscula, 1 número"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                                    title="La contraseña debe tener al menos 8 caracteres, una mayúscula y un número." 
+                                    required>
+                                <label for="confirmarContraseña">Confirmar Contraseña:</label>
+                                <input 
+                                    type="password" 
+                                    id="confirmarContraseña" 
+                                    placeholder="Repite tu contraseña" 
+                                    required>
+                                <p id="errorRegistro" class="mensaje-error" style="display:none;">Las contraseñas no coinciden.</p>
                                 <button type="submit">Crear Cuenta</button>
                             </form>
                             <p>¿Ya tienes una cuenta? <a href="#" id="cambiarALogin">Inicia Sesión acá</a></p>

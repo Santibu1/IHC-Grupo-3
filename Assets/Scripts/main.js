@@ -43,10 +43,6 @@ cambiarARegistro.addEventListener("click", (e) => {
     e.preventDefault();
     formularioLogin.style.display = "none";
     formularioRegistro.style.display = "block";
-    // Limpiar los campos de login
-    document.getElementById("correo").value = "";
-    document.getElementById("contraseña").value = "";
-    errorLogin.style.display = "none"; // Ocultar mensaje de error
 });
 
 // Cambiar a formulario de login
@@ -54,12 +50,6 @@ cambiarALogin.addEventListener("click", (e) => {
     e.preventDefault();
     formularioRegistro.style.display = "none";
     formularioLogin.style.display = "block";
-    // Limpiar los campos de registro
-    document.getElementById("nombre").value = "";
-    document.getElementById("correoRegistro").value = "";
-    document.getElementById("contraseñaRegistro").value = "";
-    document.getElementById("confirmarContraseña").value = "";
-    errorRegistro.style.display = "none"; // Ocultar mensaje de error
 });
 
 // Validar Login
@@ -70,8 +60,14 @@ loginForm.addEventListener("submit", (e) => {
 
     if (correo.includes("@") && contraseña.length >= 8) {
         alert("Inicio de sesión exitoso.");
-        modal.style.display = "none";
-        // Aquí puedes agregar la lógica de guardar el estado de sesión si es necesario.
+        
+        // Limpiar el formulario de login y el formulario de registro
+        loginForm.reset();
+        registerForm.reset();
+        errorLogin.style.display = "none"; // Limpiar el mensaje de error
+        
+        // Redirigir al usuario a la página principal (ajusta la URL según corresponda)
+        window.location.href = "index.html"; // Cambiar "index.html" a la URL de tu página principal
     } else {
         errorLogin.style.display = "block";
     }
@@ -92,13 +88,14 @@ registerForm.addEventListener("submit", (e) => {
         errorRegistro.style.display = "block";
     } else {
         alert("Registro exitoso.");
+        
+        // Limpiar los formularios después de un registro exitoso
+        formularioRegistro.reset();
+        formularioLogin.reset();
+        errorRegistro.style.display = "none"; // Limpiar el mensaje de error
+
+        // Cambiar al formulario de login después de un registro exitoso
         formularioRegistro.style.display = "none";
         formularioLogin.style.display = "block";
-        // Limpiar los campos de registro
-        document.getElementById("nombre").value = "";
-        document.getElementById("correoRegistro").value = "";
-        document.getElementById("contraseñaRegistro").value = "";
-        document.getElementById("confirmarContraseña").value = "";
-        errorRegistro.style.display = "none";
     }
 });

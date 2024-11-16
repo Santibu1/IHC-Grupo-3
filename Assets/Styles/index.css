@@ -36,8 +36,12 @@ header {
     display: flex;
     align-items: center;
 }
-
-.logo a img {
+.logo1 {
+    width: 50px;
+    margin-right: 10px;
+    border-radius: 50%; 
+}
+.logos a img {
     width: 50px;
     margin-right: 10px;
     border-radius: 50%; 

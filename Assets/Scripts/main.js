@@ -66,8 +66,8 @@ loginForm.addEventListener("submit", (e) => {
         registerForm.reset();
         errorLogin.style.display = "none"; // Limpiar el mensaje de error
         
-        // Redirigir al usuario a la página principal (ajusta la URL según corresponda)
-        window.location.href = "index.html"; // Cambiar "index.html" a la URL de tu página principal
+        // Redirigir al usuario a la página principal
+        window.location.href = "index.html"; // Cambia "index.html" a la URL de tu página principal
     } else {
         errorLogin.style.display = "block";
     }
@@ -89,12 +89,11 @@ registerForm.addEventListener("submit", (e) => {
     } else {
         alert("Registro exitoso.");
         
-        // Limpiar el formulario de registro
-        formularioRegistro.reset();
-        formularioLogin.reset();
+        // Limpiar el formulario de registro después de un registro exitoso
+        registerForm.reset();
         errorRegistro.style.display = "none"; // Limpiar el mensaje de error
         
-        // Redirigir al usuario a la página principal después de un registro exitoso
-        window.location.href = "index.html"; // Cambiar "index.html" a la URL de tu página principal
+        // Redirigir al usuario a la página principal después del registro
+        window.location.href = "index.html"; // Cambia "index.html" a la URL de tu página principal
     }
 });

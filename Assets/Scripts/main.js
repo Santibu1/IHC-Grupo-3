@@ -1,20 +1,19 @@
-const about = document.querySelector("#about")
+const about = document.querySelector("#about");
 
-about.addEventListener("click", (a)=>{
+about.addEventListener("click", (a) => {
     a.preventDefault();
+    const sectionA = document.querySelector(".SobreNosotros-section");
+    sectionA.scrollIntoView({ behavior: "smooth" });
+});
 
-    const sectionA = document.querySelector(".SobreNosotros-section")
-    sectionA.scrollIntoView({behavior: "smooth"})
-})
+const more = document.querySelector("#more");
 
-const more = document.querySelector("#more")
-
-more.addEventListener("click", (b)=>{
+more.addEventListener("click", (b) => {
     b.preventDefault();
+    const sectionMore = document.querySelector(".Inicio-Pagina");
+    sectionMore.scrollIntoView({ behavior: "smooth" });
+});
 
-    const sectionMore = document.querySelector(".Inicio-Pagina")
-    sectionMore.scrollIntoView({behavior: "smooth"})
-})
 // Elementos del DOM
 const modal = document.getElementById("modal");
 const abrirModal = document.getElementById("abrirModal");
@@ -30,12 +29,12 @@ const errorRegistro = document.getElementById("errorRegistro");
 
 // Abrir modal
 abrirModal.addEventListener("click", () => {
-    modal.style.display = "block";
+    modal.classList.add("visible");  // Usamos la clase para hacer la transición de visibilidad
 });
 
 // Cerrar modal
 cerrarModal.addEventListener("click", () => {
-    modal.style.display = "none";
+    modal.classList.remove("visible");  // Eliminamos la clase para cerrar el modal
 });
 
 // Cambiar a formulario de registro
@@ -52,26 +51,51 @@ cambiarALogin.addEventListener("click", (e) => {
     formularioLogin.style.display = "block";
 });
 
+// Función para manejar los errores de forma más específica
+const mostrarErrorLogin = (correo, contraseña) => {
+    if (!correo.includes("@")) {
+        errorLogin.textContent = "Introduce un correo válido.";
+    } else if (contraseña.length < 8) {
+        errorLogin.textContent = "La contraseña debe tener al menos 8 caracteres.";
+    } else {
+        errorLogin.style.display = "none";
+        return true;
+    }
+    errorLogin.style.display = "block";
+    return false;
+};
+
 // Validar Login
 loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const correo = document.getElementById("correo").value;
     const contraseña = document.getElementById("contraseña").value;
 
-    if (correo.includes("@") && contraseña.length >= 8) {
+    if (mostrarErrorLogin(correo, contraseña)) {
         alert("Inicio de sesión exitoso.");
-        
-        // Limpiar el formulario de login y el formulario de registro
+
+        // Limpiar el formulario de login
         loginForm.reset();
-        registerForm.reset();
         errorLogin.style.display = "none"; // Limpiar el mensaje de error
-        
+
         // Redirigir al usuario a la página principal
         window.location.href = "index.html"; // Cambia "index.html" a la URL de tu página principal
-    } else {
-        errorLogin.style.display = "block";
     }
 });
+
+// Función para manejar la validación del registro
+const mostrarErrorRegistro = (correo, contraseña, confirmarContraseña) => {
+    if (contraseña !== confirmarContraseña) {
+        errorRegistro.textContent = "Las contraseñas no coinciden.";
+    } else if (!correo.includes("@") || !correo.match(/@[a-z]+\.[a-z]{2,}/)) {
+        errorRegistro.textContent = "Introduce un correo válido.";
+    } else {
+        errorRegistro.style.display = "none";
+        return true;
+    }
+    errorRegistro.style.display = "block";
+    return false;
+};
 
 // Validar Registro
 registerForm.addEventListener("submit", (e) => {
@@ -80,19 +104,13 @@ registerForm.addEventListener("submit", (e) => {
     const contraseña = document.getElementById("contraseñaRegistro").value;
     const confirmarContraseña = document.getElementById("confirmarContraseña").value;
 
-    if (contraseña !== confirmarContraseña) {
-        errorRegistro.textContent = "Las contraseñas no coinciden.";
-        errorRegistro.style.display = "block";
-    } else if (!correo.includes("@") || !correo.match(/@[a-z]+\.[a-z]{2,}/)) {
-        errorRegistro.textContent = "Introduce un correo válido.";
-        errorRegistro.style.display = "block";
-    } else {
+    if (mostrarErrorRegistro(correo, contraseña, confirmarContraseña)) {
         alert("Registro exitoso.");
-        
+
         // Limpiar el formulario de registro después de un registro exitoso
         registerForm.reset();
         errorRegistro.style.display = "none"; // Limpiar el mensaje de error
-        
+
         // Redirigir al usuario a la página principal después del registro
         window.location.href = "index.html"; // Cambia "index.html" a la URL de tu página principal
     }

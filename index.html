@@ -42,7 +42,38 @@
                     <p>
                         Únete a nosotros para promover un estilo de vida sostenible y generar un impacto positivo en el medio ambiente.
                     </p>
-                    <h4>Empieza Ahora</h4>
+                    <button id="abrirModal">Empieza Ahora</button>
+                </div>
+                <div id="modal" class="modal">
+                    <div class="contenido-modal">
+                        <span class="cerrar">&times;</span>
+                        <!-- Formulario de Login -->
+                        <div id="formularioLogin">
+                            <h2>Iniciar Sesión</h2>
+                            <form>
+                                <label for="correo">Correo Electrónico:</label>
+                                <input type="email" id="correo" required>
+                                <label for="contraseña">Contraseña:</label>
+                                <input type="password" id="contraseña" required>
+                                <button type="submit">Iniciar Sesión</button>
+                            </form>
+                            <p>¿No tienes cuenta? <a href="#" id="cambiarARegistro">Regístrate acá</a></p>
+                        </div>
+                        <!-- Formulario de Registro -->
+                        <div id="formularioRegistro" style="display: none;">
+                            <h2>Registrarse</h2>
+                            <form>
+                                <label for="nombre">Nombre Completo:</label>
+                                <input type="text" id="nombre" required>
+                                <label for="correoRegistro">Correo Electrónico:</label>
+                                <input type="email" id="correoRegistro" required>
+                                <label for="contraseñaRegistro">Contraseña:</label>
+                                <input type="password" id="contraseñaRegistro" required>
+                                <button type="submit">Crear Cuenta</button>
+                            </form>
+                            <p>¿Ya tienes una cuenta? <a href="#" id="cambiarALogin">Inicia Sesión acá</a></p>
+                        </div>
+                    </div>
                 </div>
                 <div class="Parte-2">
                     <img src="Assets/img/ciudad_verde.jpg" alt="">

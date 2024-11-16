@@ -89,13 +89,12 @@ registerForm.addEventListener("submit", (e) => {
     } else {
         alert("Registro exitoso.");
         
-        // Limpiar los formularios después de un registro exitoso
+        // Limpiar el formulario de registro
         formularioRegistro.reset();
         formularioLogin.reset();
         errorRegistro.style.display = "none"; // Limpiar el mensaje de error
-
-        // Cambiar al formulario de login después de un registro exitoso
-        formularioRegistro.style.display = "none";
-        formularioLogin.style.display = "block";
+        
+        // Redirigir al usuario a la página principal después de un registro exitoso
+        window.location.href = "index.html"; // Cambiar "index.html" a la URL de tu página principal
     }
 });

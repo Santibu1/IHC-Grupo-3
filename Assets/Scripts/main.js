@@ -14,7 +14,6 @@ more.addEventListener("click", (b) => {
     sectionMore.scrollIntoView({ behavior: "smooth" });
 });
 
-// Elementos del DOM
 const modal = document.getElementById("modal");
 const abrirModal = document.getElementById("abrirModal");
 const cerrarModal = document.querySelector(".cerrar");

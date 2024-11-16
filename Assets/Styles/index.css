@@ -440,10 +440,10 @@ p a:hover {
     background-color: #DCFCE7;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
+    padding: 12px;
     text-align: left;
     align-items: center; 
-    gap: 15px; 
+    gap: 13px; 
 }
 
 .BoxDesarrolladores img {
@@ -459,13 +459,13 @@ p a:hover {
 
 .Developer-info h3 {
     color: #064E3B;
-    font-size: 15px;
+    font-size: 13px;
     margin-bottom: 10px;
     text-align: center; 
 }
 
 .Developer-info p {
-    font-size: 11px;
+    font-size: 9px;
     color: #064E3B;
     line-height: 1.5;
 }
@@ -475,7 +475,7 @@ p a:hover {
 .footer-section {
     background-color: #ECFDF5;
     color: #064E3B;
-    padding: 40px ;
+    padding: 30px ;
 }
 
 .footer-content {

@@ -131,6 +131,7 @@ nav ul li a:hover {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
 }
 
 .contenido-modal {
@@ -179,19 +180,51 @@ form input {
     border-radius: 5px;
 }
 
+form input.valid {
+    border-color: #4CAF50;
+}
+
+form input.invalid {
+    border-color: #f44336;
+}
+
+input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
 p a {
     color: #4CAF50;
+    font-weight: bold;
     text-decoration: none;
 }
 
 p a:hover {
-    text-decoration: underline;
+    color: #45a049;
 }
+
 .mensaje-error {
     color: red;
     font-size: 0.9em;
     margin-top: 5px;
     display: none;
+    text-align: left;
+}
+
+/* Estilo para el cambio entre Login y Registro */
+#formularioRegistro {
+    display: none;
+}
+
+#formularioLogin {
+    display: block;
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 600px) {
+    .contenido-modal {
+        width: 90%; /* Reducir el ancho en pantallas más pequeñas */
+    }
 }
 .Parte-2 img {
     max-width: 100%;

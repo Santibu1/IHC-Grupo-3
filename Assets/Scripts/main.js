@@ -15,6 +15,7 @@ more.addEventListener("click", (b)=>{
     const sectionMore = document.querySelector(".Inicio-Pagina")
     sectionMore.scrollIntoView({behavior: "smooth"})
 })
+// Elementos del DOM
 const modal = document.getElementById("modal");
 const abrirModal = document.getElementById("abrirModal");
 const cerrarModal = document.querySelector(".cerrar");
@@ -27,12 +28,12 @@ const registerForm = document.getElementById("registerForm");
 const errorLogin = document.getElementById("errorLogin");
 const errorRegistro = document.getElementById("errorRegistro");
 
-// Abrir el modal
+// Abrir modal
 abrirModal.addEventListener("click", () => {
     modal.style.display = "block";
 });
 
-// Cerrar el modal
+// Cerrar modal
 cerrarModal.addEventListener("click", () => {
     modal.style.display = "none";
 });
@@ -51,20 +52,13 @@ cambiarALogin.addEventListener("click", (e) => {
     formularioLogin.style.display = "block";
 });
 
-// Cerrar el modal al hacer clic fuera de él
-window.addEventListener("click", (event) => {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-});
-
 // Validar Login
 loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const correo = document.getElementById("correo").value;
     const contraseña = document.getElementById("contraseña").value;
 
-    if (correo === "usuario@ejemplo.com" && contraseña === "Contraseña123") {
+    if (correo.includes("@") && contraseña.length >= 8) {
         alert("Inicio de sesión exitoso.");
         modal.style.display = "none";
     } else {
@@ -75,14 +69,20 @@ loginForm.addEventListener("submit", (e) => {
 // Validar Registro
 registerForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    const correo = document.getElementById("correoRegistro").value;
     const contraseña = document.getElementById("contraseñaRegistro").value;
     const confirmarContraseña = document.getElementById("confirmarContraseña").value;
 
-    if (contraseña === confirmarContraseña) {
-        alert("Registro exitoso. Ahora puedes iniciar sesión.");
+    if (contraseña !== confirmarContraseña) {
+        errorRegistro.textContent = "Las contraseñas no coinciden.";
+        errorRegistro.style.display = "block";
+    } else if (!correo.includes("@") || !correo.match(/@[a-z]+\.[a-z]{2,}/)) {
+        errorRegistro.textContent = "Introduce un correo válido.";
+        errorRegistro.style.display = "block";
+    } else {
+        alert("Registro exitoso.");
         formularioRegistro.style.display = "none";
         formularioLogin.style.display = "block";
-    } else {
-        errorRegistro.style.display = "block";
+        errorRegistro.style.display = "none";
     }
 });

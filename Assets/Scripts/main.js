@@ -13,7 +13,13 @@ more.addEventListener("click", (b) => {
     const sectionMore = document.querySelector(".Inicio-Pagina");
     sectionMore.scrollIntoView({ behavior: "smooth" });
 });
-// Elementos del DOM
+const feed = document.querySelector("#feed");
+
+more.addEventListener("click", (c) => {
+    c.preventDefault();
+    const footerFeed = document.querySelector(".footer-section");
+    footerFeed.scrollIntoView({ behavior: "smooth" });
+});
 const modal = document.getElementById("modal");
 const abrirModal = document.getElementById("abrirModal");
 const cerrarModal = document.querySelector(".cerrar");
@@ -56,18 +62,21 @@ loginForm.addEventListener("submit", (e) => {
     const correo = document.getElementById("correo").value;
     const contraseña = document.getElementById("contraseña").value;
 
-    if (correo.includes("@") && contraseña.length >= 8) {
+    // Validar que la contraseña cumpla con los requisitos
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z]).{8,}$/;
+    
+    if (correo.includes("@") && passwordRegex.test(contraseña)) {
         alert("Inicio de sesión exitoso.");
         
-        // Limpiar el formulario de login y el formulario de registro
+        // Limpiar el formulario de login
         loginForm.reset();
-        registerForm.reset();
         errorLogin.style.display = "none"; // Limpiar el mensaje de error
         
         // Redirigir al usuario a la página principal
         window.location.href = "index.html"; // Cambia "index.html" a la URL de tu página principal
     } else {
         errorLogin.style.display = "block";
+        errorLogin.textContent = "La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.";
     }
 });
 
@@ -78,11 +87,17 @@ registerForm.addEventListener("submit", (e) => {
     const contraseña = document.getElementById("contraseñaRegistro").value;
     const confirmarContraseña = document.getElementById("confirmarContraseña").value;
 
+    // Validar que la contraseña cumpla con los requisitos
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z]).{8,}$/;
+
     if (contraseña !== confirmarContraseña) {
         errorRegistro.textContent = "Las contraseñas no coinciden.";
         errorRegistro.style.display = "block";
     } else if (!correo.includes("@") || !correo.match(/@[a-z]+\.[a-z]{2,}/)) {
         errorRegistro.textContent = "Introduce un correo válido.";
+        errorRegistro.style.display = "block";
+    } else if (!passwordRegex.test(contraseña)) {
+        errorRegistro.textContent = "La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.";
         errorRegistro.style.display = "block";
     } else {
         alert("Registro exitoso.");

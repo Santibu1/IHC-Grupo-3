@@ -30,6 +30,8 @@ const cambiarARegistro = document.getElementById("cambiarARegistro");
 const cambiarALogin = document.getElementById("cambiarALogin");
 const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
+const errorLogin = document.getElementById("errorLogin");
+const errorRegistro = document.getElementById("errorRegistro");
 
 // Abrir modal
 abrirModal.addEventListener("click", () => {
@@ -64,19 +66,16 @@ loginForm.addEventListener("submit", (e) => {
     const correo = document.getElementById("correo").value.trim();
     const contraseña = document.getElementById("contraseña").value.trim();
 
-    limpiarErrores(); // Limpia mensajes de error previos
-
     if (!correo && !contraseña) {
-        mostrarError("correo", "Por favor, ingresa tu correo.");
-        mostrarError("contraseña", "Por favor, ingresa tu contraseña.");
+        mostrarError(errorLogin, "Por favor, completa las credenciales.");
     } else if (!correo) {
-        mostrarError("correo", "Por favor, ingresa tu correo.");
-    } else if (!validarFormatoCorreo(correo)) {
-        mostrarError("correo", "Introduce un correo válido.");
+        mostrarError(errorLogin, "Por favor, ingresa el correo.");
     } else if (!contraseña) {
-        mostrarError("contraseña", "Por favor, ingresa tu contraseña.");
+        mostrarError(errorLogin, "Por favor, ingresa la contraseña.");
+    } else if (!validarFormatoCorreo(correo)) {
+        mostrarError(errorLogin, "Introduce un correo válido.");
     } else if (!validarFormatoContraseña(contraseña)) {
-        mostrarError("contraseña", "La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.");
+        mostrarError(errorLogin, "La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.");
     } else {
         alert("Inicio de sesión exitoso.");
         limpiarFormularios();
@@ -87,74 +86,43 @@ loginForm.addEventListener("submit", (e) => {
 // Validar Registro
 registerForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const nombres = document.getElementById("nombres").value.trim();
-    const apellidos = document.getElementById("apellidos").value.trim();
     const correo = document.getElementById("correoRegistro").value.trim();
     const contraseña = document.getElementById("contraseñaRegistro").value.trim();
     const confirmarContraseña = document.getElementById("confirmarContraseña").value.trim();
 
-    limpiarErrores(); // Limpia mensajes de error previos
-
-    if (!nombres) {
-        mostrarError("nombres", "Por favor, ingresa tus nombres.");
-    }
-    if (!apellidos) {
-        mostrarError("apellidos", "Por favor, ingresa tus apellidos.");
-    }
-    if (!correo) {
-        mostrarError("correoRegistro", "Por favor, ingresa tu correo.");
+    if (!correo && !contraseña && !confirmarContraseña) {
+        mostrarError(errorRegistro, "Por favor, completa todos los campos.");
+    } else if (!correo) {
+        mostrarError(errorRegistro, "Por favor, ingresa el correo.");
+    } else if (!contraseña) {
+        mostrarError(errorRegistro, "Por favor, ingresa la contraseña.");
+    } else if (!confirmarContraseña) {
+        mostrarError(errorRegistro, "Por favor, confirma tu contraseña.");
     } else if (!validarFormatoCorreo(correo)) {
-        mostrarError("correoRegistro", "Introduce un correo válido.");
-    }
-    if (!contraseña) {
-        mostrarError("contraseñaRegistro", "Por favor, ingresa tu contraseña.");
+        mostrarError(errorRegistro, "Introduce un correo válido.");
     } else if (!validarFormatoContraseña(contraseña)) {
-        mostrarError("contraseñaRegistro", "La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.");
-    }
-    if (!confirmarContraseña) {
-        mostrarError("confirmarContraseña", "Por favor, confirma tu contraseña.");
-    } else if (contraseña && contraseña !== confirmarContraseña) {
-        mostrarError("confirmarContraseña", "Las contraseñas no coinciden.");
-    }
-
-    if (
-        nombres &&
-        apellidos &&
-        correo &&
-        validarFormatoCorreo(correo) &&
-        contraseña &&
-        validarFormatoContraseña(contraseña) &&
-        confirmarContraseña === contraseña
-    ) {
+        mostrarError(errorRegistro, "La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.");
+    } else if (contraseña !== confirmarContraseña) {
+        mostrarError(errorRegistro, "Las contraseñas no coinciden.");
+    } else {
         alert("Registro exitoso.");
         limpiarFormularios();
         window.location.href = "index.html"; // Cambia "index.html" a la URL de tu página principal
     }
 });
 
-// Función para mostrar errores específicos por campo
-function mostrarError(campoId, mensaje) {
-    const campo = document.getElementById(campoId);
-    const mensajeError = document.createElement("p");
-    mensajeError.className = "mensaje-error";
-    mensajeError.textContent = mensaje;
-    mensajeError.style.color = "red";
-    mensajeError.style.fontSize = "0.9em";
-    mensajeError.style.marginTop = "5px";
-    campo.parentNode.appendChild(mensajeError);
+// Función para mostrar errores
+function mostrarError(elementoError, mensaje) {
+    elementoError.textContent = mensaje;
+    elementoError.style.display = "block";
 }
 
-// Función para limpiar formularios y errores
+// Función para limpiar formularios
 function limpiarFormularios() {
-    loginForm.reset();
-    registerForm.reset();
-    limpiarErrores(); // Limpia los mensajes de error
-}
-
-// Función para limpiar mensajes de error
-function limpiarErrores() {
-    const errores = document.querySelectorAll(".mensaje-error");
-    errores.forEach((error) => error.remove());
+    loginForm.reset(); // Limpia el formulario de login
+    registerForm.reset(); // Limpia el formulario de registro
+    errorLogin.style.display = "none"; // Oculta el mensaje de error de login
+    errorRegistro.style.display = "none"; // Oculta el mensaje de error de registro
 }
 
 // Función para validar el formato del correo

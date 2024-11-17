@@ -120,6 +120,19 @@ nav ul li a:hover {
     background-color: #65A30D
     
 }
+/* Modal con animación de visibilidad */
+#modal {
+    display: none;
+    /* Estado inicial */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#modal.visible {
+    display: block;
+    opacity: 1;
+}
+
 
 .modal {
     display: none;

@@ -35,12 +35,13 @@ const errorRegistro = document.getElementById("errorRegistro");
 // Abrir modal
 abrirModal.addEventListener("click", () => {
     modal.style.display = "block";
+    limpiarFormularios(); // Limpiar formularios al abrir el modal
 });
 
 // Cerrar modal y limpiar formularios
 cerrarModal.addEventListener("click", () => {
     modal.style.display = "none";
-    limpiarFormularios(); // Restablecer formularios
+    limpiarFormularios(); // Restablecer formularios al cerrar el modal
 });
 
 // Cambiar a formulario de registro

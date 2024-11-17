@@ -64,7 +64,7 @@ loginForm.addEventListener("submit", (e) => {
 
     // Validar que la contraseña cumpla con los requisitos
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z]).{8,}$/;
-    
+
     if (correo.includes("@") && passwordRegex.test(contraseña)) {
         alert("Inicio de sesión exitoso.");
         

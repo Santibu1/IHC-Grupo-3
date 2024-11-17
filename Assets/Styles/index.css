@@ -226,6 +226,7 @@ p a:hover {
         width: 90%; /* Reducir el ancho en pantallas más pequeñas */
     }
 }
+
 .Parte-2 img {
     max-width: 100%;
     height: auto;

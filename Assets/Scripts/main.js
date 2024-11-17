@@ -7,7 +7,6 @@ about.addEventListener("click", (a) => {
 });
 
 const more = document.querySelector("#more");
-
 more.addEventListener("click", (b) => {
     b.preventDefault();
     const sectionMore = document.querySelector(".Inicio-Pagina");
@@ -15,7 +14,7 @@ more.addEventListener("click", (b) => {
 });
 const feed = document.querySelector("#feed");
 
-more.addEventListener("click", (c) => {
+feed.addEventListener("click", (c) => {
     c.preventDefault();
     const footerFeed = document.querySelector(".footer-section");
     footerFeed.scrollIntoView({ behavior: "smooth" });

@@ -1,10 +1,3 @@
-/* Estilos generales */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
-}
 
 body {
     background-color: #ECFDF5;
@@ -93,7 +86,11 @@ nav ul li a:hover {
     margin: 50px auto;
     padding: 0 20px;
 }
-
+.Inicio-Pagina img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
 .Parte-1 h1 {
     font-size: 48px;
     color: #064E3B;
@@ -219,13 +216,6 @@ p a:hover {
     display: block;
 }
 
-/* Media queries para pantallas pequeñas */
-@media (max-width: 600px) {
-    .contenido-modal {
-        width: 90%; /* Reducir el ancho en pantallas más pequeñas */
-    }
-}
-
 .Parte-2 img {
     max-width: 100%;
     height: auto;
@@ -248,7 +238,10 @@ p a:hover {
     margin: 0 auto; 
     gap: 30px; 
 }
-
+.SobreNosotros-logo {
+    width: 180px; /* Ajustado para que no sea tan grande */
+    height: auto;
+}
 .EcoChips-logo {
     width: 200px; 
     height: auto; 
@@ -318,8 +311,10 @@ p a:hover {
 }
 
 .card img {
-    width: 100px;
+    max-width: 100%;
+    height: 120px;
     margin-bottom: 15px;
+    object-fit: cover;
 }
 
 .card h3 {
@@ -525,8 +520,8 @@ p a:hover {
 }
 
 .social-icons img {
-    width: 25px; 
-    height: 25px; 
+    width: 30px;  
+    height: 30px;
     margin: 0 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -551,4 +546,47 @@ hr {
     height: 1px;
     background-color: #123312; 
     margin: 20px 0; 
+}
+@media (max-width: 480px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .SobreNosotros-box {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logos-sociales {
+        justify-content: center;
+    }
+
+    .feedback-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .feedback-card {
+        width: 90%;
+    }
+
+    .Lista {
+        flex-direction: column;
+    }
+}
+/* Media queries para pantallas pequeñas */
+@media (max-width: 600px) {
+    .contenido-modal {
+        width: 90%; /* Reducir el ancho en pantallas más pequeñas */
+    }
 }

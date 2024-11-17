@@ -19,6 +19,7 @@ feed.addEventListener("click", (c) => {
     const footerFeed = document.querySelector(".footer-section");
     footerFeed.scrollIntoView({ behavior: "smooth" });
 });
+// Elementos del DOM
 const modal = document.getElementById("modal");
 const abrirModal = document.getElementById("abrirModal");
 const cerrarModal = document.querySelector(".cerrar");
@@ -36,9 +37,10 @@ abrirModal.addEventListener("click", () => {
     modal.style.display = "block";
 });
 
-// Cerrar modal
+// Cerrar modal y limpiar formularios
 cerrarModal.addEventListener("click", () => {
     modal.style.display = "none";
+    limpiarFormularios(); // Restablecer formularios
 });
 
 // Cambiar a formulario de registro
@@ -46,6 +48,7 @@ cambiarARegistro.addEventListener("click", (e) => {
     e.preventDefault();
     formularioLogin.style.display = "none";
     formularioRegistro.style.display = "block";
+    limpiarFormularios(); // Limpiar formularios al cambiar entre login y registro
 });
 
 // Cambiar a formulario de login
@@ -53,59 +56,82 @@ cambiarALogin.addEventListener("click", (e) => {
     e.preventDefault();
     formularioRegistro.style.display = "none";
     formularioLogin.style.display = "block";
+    limpiarFormularios(); // Limpiar formularios al cambiar entre registro y login
 });
 
 // Validar Login
 loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const correo = document.getElementById("correo").value;
-    const contraseña = document.getElementById("contraseña").value;
+    const correo = document.getElementById("correo").value.trim();
+    const contraseña = document.getElementById("contraseña").value.trim();
 
-    // Validar que la contraseña cumpla con los requisitos
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z]).{8,}$/;
-
-    if (correo.includes("@") && passwordRegex.test(contraseña)) {
-        alert("Inicio de sesión exitoso.");
-        
-        // Limpiar el formulario de login
-        loginForm.reset();
-        errorLogin.style.display = "none"; // Limpiar el mensaje de error
-        
-        // Redirigir al usuario a la página principal
-        window.location.href = "index.html"; // Cambia "index.html" a la URL de tu página principal
+    if (!correo && !contraseña) {
+        mostrarError(errorLogin, "Por favor, completa las credenciales.");
+    } else if (!correo) {
+        mostrarError(errorLogin, "Por favor, ingresa el correo.");
+    } else if (!contraseña) {
+        mostrarError(errorLogin, "Por favor, ingresa la contraseña.");
+    } else if (!validarFormatoCorreo(correo)) {
+        mostrarError(errorLogin, "Introduce un correo válido.");
+    } else if (!validarFormatoContraseña(contraseña)) {
+        mostrarError(errorLogin, "La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.");
     } else {
-        errorLogin.style.display = "block";
-        errorLogin.textContent = "La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.";
+        alert("Inicio de sesión exitoso.");
+        limpiarFormularios();
+        window.location.href = "index.html"; // Cambia "index.html" a la URL de tu página principal
     }
 });
 
 // Validar Registro
 registerForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const correo = document.getElementById("correoRegistro").value;
-    const contraseña = document.getElementById("contraseñaRegistro").value;
-    const confirmarContraseña = document.getElementById("confirmarContraseña").value;
+    const correo = document.getElementById("correoRegistro").value.trim();
+    const contraseña = document.getElementById("contraseñaRegistro").value.trim();
+    const confirmarContraseña = document.getElementById("confirmarContraseña").value.trim();
 
-    // Validar que la contraseña cumpla con los requisitos
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z]).{8,}$/;
-
-    if (contraseña !== confirmarContraseña) {
-        errorRegistro.textContent = "Las contraseñas no coinciden.";
-        errorRegistro.style.display = "block";
-    } else if (!correo.includes("@") || !correo.match(/@[a-z]+\.[a-z]{2,}/)) {
-        errorRegistro.textContent = "Introduce un correo válido.";
-        errorRegistro.style.display = "block";
-    } else if (!passwordRegex.test(contraseña)) {
-        errorRegistro.textContent = "La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.";
-        errorRegistro.style.display = "block";
+    if (!correo && !contraseña && !confirmarContraseña) {
+        mostrarError(errorRegistro, "Por favor, completa todos los campos.");
+    } else if (!correo) {
+        mostrarError(errorRegistro, "Por favor, ingresa el correo.");
+    } else if (!contraseña) {
+        mostrarError(errorRegistro, "Por favor, ingresa la contraseña.");
+    } else if (!confirmarContraseña) {
+        mostrarError(errorRegistro, "Por favor, confirma tu contraseña.");
+    } else if (!validarFormatoCorreo(correo)) {
+        mostrarError(errorRegistro, "Introduce un correo válido.");
+    } else if (!validarFormatoContraseña(contraseña)) {
+        mostrarError(errorRegistro, "La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.");
+    } else if (contraseña !== confirmarContraseña) {
+        mostrarError(errorRegistro, "Las contraseñas no coinciden.");
     } else {
         alert("Registro exitoso.");
-        
-        // Limpiar el formulario de registro después de un registro exitoso
-        registerForm.reset();
-        errorRegistro.style.display = "none"; // Limpiar el mensaje de error
-        
-        // Redirigir al usuario a la página principal después del registro
+        limpiarFormularios();
         window.location.href = "index.html"; // Cambia "index.html" a la URL de tu página principal
     }
 });
+
+// Función para mostrar errores
+function mostrarError(elementoError, mensaje) {
+    elementoError.textContent = mensaje;
+    elementoError.style.display = "block";
+}
+
+// Función para limpiar formularios
+function limpiarFormularios() {
+    loginForm.reset(); // Limpia el formulario de login
+    registerForm.reset(); // Limpia el formulario de registro
+    errorLogin.style.display = "none"; // Oculta el mensaje de error de login
+    errorRegistro.style.display = "none"; // Oculta el mensaje de error de registro
+}
+
+// Función para validar el formato del correo
+function validarFormatoCorreo(correo) {
+    const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regexCorreo.test(correo);
+}
+
+// Función para validar el formato de la contraseña
+function validarFormatoContraseña(contraseña) {
+    const regexContraseña = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+    return regexContraseña.test(contraseña);
+}

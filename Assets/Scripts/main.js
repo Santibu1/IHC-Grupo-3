@@ -3,22 +3,23 @@ const about = document.querySelector("#about");
 about.addEventListener("click", (a) => {
     a.preventDefault();
     const sectionA = document.querySelector(".SobreNosotros-section");
-    sectionA.scrollIntoView({ behavior: "smooth" });
+    sectionA.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 const more = document.querySelector("#more");
 more.addEventListener("click", (b) => {
     b.preventDefault();
     const sectionMore = document.querySelector(".Inicio-Pagina");
-    sectionMore.scrollIntoView({ behavior: "smooth" });
+    sectionMore.scrollIntoView({ behavior: "smooth", block: "start" });
 });
-const feed = document.querySelector("#feed");
 
+const feed = document.querySelector("#feed");
 feed.addEventListener("click", (c) => {
-    c.preventDefault();
-    const footerFeed = document.querySelector(".footer-section");
-    footerFeed.scrollIntoView({ behavior: "smooth" });
+    c.preventDefault(); 
+    const feedbackSection = document.querySelector(".feedback-section"); 
+    feedbackSection.scrollIntoView({ behavior: "smooth", block: "start" });
 });
+
 // Elementos del DOM
 const modal = document.getElementById("modal");
 const abrirModal = document.getElementById("abrirModal");

@@ -228,7 +228,7 @@
         height: auto;
     }
 
-    /* Sección Sobre Nosotros */
+ 
     .SobreNosotros-section {
         background-color: #ECFDF5; 
         position: relative; 
@@ -248,13 +248,13 @@
         background-color: #DCFCE7; 
     }
     .SobreNosotros-logo {
-        width: 180px; /* Ajustado para que no sea tan grande */
+        width: 180px; 
         height: auto;
     }
     .EcoChips-logo {
         width: 200px; 
         height: auto;
-        border-radius: 12px; /* Bordes ligeramente redondeados */
+        border-radius: 12px; 
     }
 
     .SobreNosotros-text {
@@ -268,7 +268,7 @@
         transform: translateX(-50%); 
         font-size: 32px; 
         font-weight: bold;
-        color: #027a23; 
+        color: #064E3B; 
         padding: 5px 15px; 
         border-radius: 8px; 
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 

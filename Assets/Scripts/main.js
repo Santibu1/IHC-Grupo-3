@@ -36,13 +36,13 @@ const errorRegistro = document.getElementById("errorRegistro");
 // Abrir modal
 abrirModal.addEventListener("click", () => {
     modal.style.display = "block";
-    limpiarFormularios(); // Limpiar formularios al abrir el modal
+    limpiarFormularios(); 
 });
 
 // Cerrar modal y limpiar formularios
 cerrarModal.addEventListener("click", () => {
     modal.style.display = "none";
-    limpiarFormularios(); // Restablecer formularios al cerrar el modal
+    limpiarFormularios(); 
 });
 
 // Cambiar a formulario de registro
@@ -50,7 +50,7 @@ cambiarARegistro.addEventListener("click", (e) => {
     e.preventDefault();
     formularioLogin.style.display = "none";
     formularioRegistro.style.display = "block";
-    limpiarFormularios(); // Limpiar formularios al cambiar entre login y registro
+    limpiarFormularios(); 
 });
 
 // Cambiar a formulario de login
@@ -58,7 +58,7 @@ cambiarALogin.addEventListener("click", (e) => {
     e.preventDefault();
     formularioRegistro.style.display = "none";
     formularioLogin.style.display = "block";
-    limpiarFormularios(); // Limpiar formularios al cambiar entre registro y login
+    limpiarFormularios(); 
 });
 
 // Validar Login
@@ -80,11 +80,11 @@ loginForm.addEventListener("submit", (e) => {
     } else {
         alert("Inicio de sesión exitoso.");
         limpiarFormularios();
-        window.location.href = "index.html"; // Cambia "index.html" a la URL de tu página principal
+        window.location.href = "index.html"; 
     }
 });
 
-// Validar Registro
+
 registerForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const correo = document.getElementById("correoRegistro").value.trim();
@@ -108,7 +108,7 @@ registerForm.addEventListener("submit", (e) => {
     } else {
         alert("Registro exitoso.");
         limpiarFormularios();
-        window.location.href = "index.html"; // Cambia "index.html" a la URL de tu página principal
+        window.location.href = "index.html"; 
     }
 });
 
@@ -120,10 +120,10 @@ function mostrarError(elementoError, mensaje) {
 
 // Función para limpiar formularios
 function limpiarFormularios() {
-    loginForm.reset(); // Limpia el formulario de login
-    registerForm.reset(); // Limpia el formulario de registro
-    errorLogin.style.display = "none"; // Oculta el mensaje de error de login
-    errorRegistro.style.display = "none"; // Oculta el mensaje de error de registro
+    loginForm.reset(); 
+    registerForm.reset(); 
+    errorLogin.style.display = "none"; 
+    errorRegistro.style.display = "none"; 
 }
 
 // Función para validar el formato del correo
@@ -137,3 +137,16 @@ function validarFormatoContraseña(contraseña) {
     const regexContraseña = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
     return regexContraseña.test(contraseña);
 }
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'flex'; // Cambiar el estilo a "flex" para centrar
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none'; 
+}
+
+// Asignar evento al enlace "Contáctanos"
+document.getElementById("contact").addEventListener("click", function (event) {
+    event.preventDefault(); 
+    openModal("contactmodal"); 
+});

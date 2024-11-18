@@ -586,20 +586,22 @@
     }
     
     .modal-contact-contend {
-        background-color: #fff;
-        border-radius: 10px;
+        width: 300px; 
         padding: 20px;
-        width: 300px;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        position: relative; 
+        text-align: center; 
+        overflow: visible; 
     }
     .modal-logo {
         width: 80px; 
         height: auto;
-        margin: 0 auto; 
+        margin: 0 auto;
         display: block;
         margin-bottom: 15px; 
-        border-radius: 50%;
+        border-radius: 50%; 
         background-color: #f9f9f9; 
         padding: 5px; 
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 

@@ -231,50 +231,54 @@
     /* Sección Sobre Nosotros */
     .SobreNosotros-section {
         background-color: #ECFDF5; 
-        display: flex;
-        justify-content: center; 
-        align-items: center; 
-        padding: 40px 20px; 
+        position: relative; 
+        padding: 60px 20px; 
     }
 
     .SobreNosotros-box {
         display: flex;
-        flex-direction: column; /* Organiza el contenido en una columna */
-        align-items: center; /* Centra el contenido dentro del contenedor */
-        text-align: center; /* Centra el texto */
-        max-width: 900px; /* Limita el ancho para no expandir demasiado */
+        flex-direction: row; 
+        align-items: center; 
+        max-width: 1200px; 
+        margin: 40px auto 0; 
+        padding: 30px; 
+        border-radius: 12px; 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+        gap: 20px; 
         background-color: #DCFCE7; 
-        padding: 30px; /* Espaciado interno */
-        border-radius: 12px; /* Bordes redondeados */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle relieve */
     }
     .SobreNosotros-logo {
         width: 180px; /* Ajustado para que no sea tan grande */
         height: auto;
     }
     .EcoChips-logo {
-        width: 100px; /* Tamaño de la imagen */
+        width: 200px; 
         height: auto;
-        margin-bottom: 20px; /* Espacio entre la imagen y el texto */
-        border-radius: 50%; /* Bordes redondeados para el logo */
+        border-radius: 12px; /* Bordes ligeramente redondeados */
     }
 
     .SobreNosotros-text {
-        text-align: left; 
+        flex: 1; 
     }
 
     .SobreNosotros-text h2 {
-        font-size: 28px; /* Tamaño del título */
-        color: #027a23; /* Color destacado */
-        margin-bottom: 15px; /* Espacio debajo del título */
+        position: absolute; 
+        top: -30px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        font-size: 32px; 
+        font-weight: bold;
+        color: #027a23; 
+        padding: 5px 15px; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
         font-family: 'Arial', sans-serif;
     }
 
     .SobreNosotros-text p {
-        font-size: 18px; 
-        line-height: 1.6; 
-        color: #333333; 
-        margin: 0; 
+        font-size: 18px; /* Tamaño del texto */
+        line-height: 1.6; /* Espaciado entre líneas */
+        color: #333333; /* Color del texto */
     }
 
     .logos-sociales {

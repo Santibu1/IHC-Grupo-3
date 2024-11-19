@@ -625,7 +625,6 @@
         }
 
         .cards-container {
-            grid-template-columns: repeat(3, 1fr); /* Tres columnas en pantallas grandes */
             flex-direction: column;
             gap: 10px
         }

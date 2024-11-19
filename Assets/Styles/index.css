@@ -624,11 +624,11 @@
             text-align: center;
         }
 
-        .cards-container {
+        .card-container { 
             flex-direction: column;
             gap: 10px;
         }
-
+    
         .card {
             width: 100%;
         }

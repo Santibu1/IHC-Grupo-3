@@ -618,15 +618,16 @@
         margin-top: -10px;
         margin-right: -10px;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         .header-container {
             flex-direction: column;
             text-align: center;
         }
 
-        .card-container {
+        .cards-container {
+            grid-template-columns: repeat(3, 1fr); /* Tres columnas en pantallas grandes */
             flex-direction: column;
-            gap: 10px;
+            gap: 10px
         }
 
         .card {

@@ -654,4 +654,34 @@
         .Lista {
             flex-direction: column;
         }
+        .footer-content {
+            flex-direction: column; /* Cambia el diseño a una columna */
+            align-items: center;
+        }
+    
+        .footer-column {
+            text-align: center; /* Centra el contenido */
+            flex: 1 1 100%; /* Ocupa todo el ancho disponible */
+        }
+    
+        .subscribe-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .subscribe-form input {
+            width: 90%; /* Ajusta el ancho del input */
+            margin-bottom: 10px;
+        }
+    
+        .social-icons {
+            flex-wrap: wrap; /* Permite que los íconos se acomoden en varias filas si es necesario */
+        }
+    
+        .copyright {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 12px;
+        }
     }

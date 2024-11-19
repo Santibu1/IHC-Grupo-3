@@ -644,11 +644,11 @@
 
         .feedback-container {
             flex-direction: column;
-            gap: 20px;
+            gap: 10px;
         }
 
         .feedback-card {
-            width: 90%;
+            width: 100%;
         }
 
         .Lista {
